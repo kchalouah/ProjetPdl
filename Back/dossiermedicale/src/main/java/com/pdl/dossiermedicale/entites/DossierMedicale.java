@@ -1,12 +1,16 @@
 package com.pdl.dossiermedicale.entites;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
+
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class DossierMedicale {
 
     @Id
@@ -34,4 +38,68 @@ public class DossierMedicale {
 
     @OneToMany(mappedBy = "dossierMedical")
     private List<Document> documents;
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getHistorique() {
+        return historique;
+    }
+
+    public void setHistorique(String historique) {
+        this.historique = historique;
+    }
+
+    public Date getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(Date dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public Medecin getMedecinAssigne() {
+        return medecinAssigne;
+    }
+
+    public void setMedecinAssigne(Medecin medecinAssigne) {
+        this.medecinAssigne = medecinAssigne;
+    }
+
+    public Infirmier getInfirmierAssigne() {
+        return infirmierAssigne;
+    }
+
+    public void setInfirmierAssigne(Infirmier infirmierAssigne) {
+        this.infirmierAssigne = infirmierAssigne;
+    }
+
+    public TechnicienMedicale getTechnicienAssigne() {
+        return technicienAssigne;
+    }
+
+    public void setTechnicienAssigne(TechnicienMedicale technicienAssigne) {
+        this.technicienAssigne = technicienAssigne;
+    }
+
+    public List<Document> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(List<Document> documents) {
+        this.documents = documents;
+    }
 }
